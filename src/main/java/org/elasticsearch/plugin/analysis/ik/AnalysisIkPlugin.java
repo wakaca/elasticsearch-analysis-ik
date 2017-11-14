@@ -15,15 +15,15 @@ import java.util.Map;
 
 public class AnalysisIkPlugin extends Plugin implements AnalysisPlugin {
 
-	public static String PLUGIN_NAME = "analysis-ik";
+	public static String PLUGIN_NAME = "analysis-ik-prod";
 
     @Override
     public Map<String, AnalysisModule.AnalysisProvider<TokenizerFactory>> getTokenizers() {
         Map<String, AnalysisModule.AnalysisProvider<TokenizerFactory>> extra = new HashMap<>();
 
 
-        extra.put("ik_smart", IkTokenizerFactory::getIkSmartTokenizerFactory);
-        extra.put("ik_max_word", IkTokenizerFactory::getIkTokenizerFactory);
+        extra.put("ik_smart_prod", IkTokenizerFactory::getIkSmartTokenizerFactory);
+        extra.put("ik_max_word_prod", IkTokenizerFactory::getIkTokenizerFactory);
 
         return extra;
     }
@@ -32,8 +32,8 @@ public class AnalysisIkPlugin extends Plugin implements AnalysisPlugin {
     public Map<String, AnalysisModule.AnalysisProvider<AnalyzerProvider<? extends Analyzer>>> getAnalyzers() {
         Map<String, AnalysisModule.AnalysisProvider<AnalyzerProvider<? extends Analyzer>>> extra = new HashMap<>();
 
-        extra.put("ik_smart", IkAnalyzerProvider::getIkSmartAnalyzerProvider);
-        extra.put("ik_max_word", IkAnalyzerProvider::getIkAnalyzerProvider);
+        extra.put("ik_smart_prod", IkAnalyzerProvider::getIkSmartAnalyzerProvider);
+        extra.put("ik_max_word_prod", IkAnalyzerProvider::getIkAnalyzerProvider);
 
         return extra;
     }
